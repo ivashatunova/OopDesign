@@ -8,9 +8,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 public class RadioTest {
     @ParameterizedTest
-   @CsvFileSource(files = "src/test/resources/RadioNumberBorderAndInsideBorder.csv")
+    @CsvFileSource(files = "src/test/resources/RadioNumberBorderAndInsideBorder.csv")
     public void setRadioNumberBorderAndInsideBorder(int expected) {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
 
         radio.setCurrentRadioNumber(expected);
         int actual = radio.getCurrentRadioNumber();
@@ -21,7 +21,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/RadioNumberOutsideBorder.csv")
     public void setRadioNumberOutsideBorder(int CurrentRadioNumber) {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
         radio.setCurrentRadioNumber(5);
         int expected = radio.getCurrentRadioNumber();
 
@@ -34,7 +34,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/NextRadioNumber.csv")
     public void nextRadioNumberLeftBorderAndInsideBorder(int currentRadioNumber) {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
         radio.setCurrentRadioNumber(currentRadioNumber);
         int expected = radio.getCurrentRadioNumber() + 1;
         radio.nextRadioNumber();
@@ -46,7 +46,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/PrevRadioNumber.csv")
     public void shouldPrevRadioNumberRightBorderAndInsideBorder(int currentRadioNumber) {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
         radio.setCurrentRadioNumber(currentRadioNumber);
         int expected = radio.getCurrentRadioNumber() - 1;
         radio.prevRadioNumber();
@@ -57,7 +57,7 @@ public class RadioTest {
 
     @Test
     public void nextRadioNumberRightBorder() {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
         radio.setCurrentRadioNumber(9);
         int expected = 0;
         radio.nextRadioNumber();
@@ -68,7 +68,7 @@ public class RadioTest {
 
     @Test
     public void prevRadioNumberLeftBorder() {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
         radio.setCurrentRadioNumber(0);
         int expected = 9;
         radio.prevRadioNumber();
@@ -80,8 +80,8 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/IncreaseSoundVolumeLeftBorderAndInsideBorder.csv")
     public void increaseSoundVolumeLeftBorderAndInsideBorder(int currentSoundVolume) {
-        Radio radio = new Radio ();
-        radio.currentSoundVolume=currentSoundVolume;
+        Radio radio = new Radio();
+        radio.currentSoundVolume = currentSoundVolume;
         int expected = currentSoundVolume + 1;
         radio.increaseSoundVolume();
         int actual = radio.getCurrentSoundVolume();
@@ -91,7 +91,7 @@ public class RadioTest {
 
     @Test
     public void increaseSoundVolumeRightBorder() {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
         radio.currentSoundVolume = 100;
         int expected = 100;
         radio.increaseSoundVolume();
@@ -103,8 +103,8 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DecreaseSoundVolumeRightBorderAndInsideBorder.csv")
     public void decreaseSoundVolumeRightBorderAndInsideBorder(int currentSoundVolume) {
-        Radio radio = new Radio ();
-        radio.currentSoundVolume=currentSoundVolume;
+        Radio radio = new Radio();
+        radio.currentSoundVolume = currentSoundVolume;
         int expected = currentSoundVolume - 1;
         radio.decreaseSoundVolume();
         int actual = radio.getCurrentSoundVolume();
@@ -114,7 +114,7 @@ public class RadioTest {
 
     @Test
     public void decreaseSoundVolumeLeftBorder() {
-        Radio radio = new Radio ();
+        Radio radio = new Radio();
         radio.currentSoundVolume = 0;
         int expected = 0;
         radio.decreaseSoundVolume();
@@ -122,7 +122,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
 
 
 }

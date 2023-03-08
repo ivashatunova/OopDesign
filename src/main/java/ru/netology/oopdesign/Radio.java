@@ -1,4 +1,5 @@
 package ru.netology.oopdesign;
+
 public class Radio {
 
     public int currentRadioNumber;
@@ -28,9 +29,8 @@ public class Radio {
         } else {
             currentRadioNumber = currentRadioNumber + 1;
         }
-
-
     }
+
     public void prevRadioNumber() {
         if (currentRadioNumber < 1) {
             currentRadioNumber = 9;
@@ -40,20 +40,14 @@ public class Radio {
     }
 
     public void increaseSoundVolume() {
-        if (currentSoundVolume >= 100) {
-            return;
-        } else {
+        if (currentSoundVolume < 100) {
             currentSoundVolume = currentSoundVolume + 1;
         }
-        }
-
-    public void decreaseSoundVolume() {
-        if (currentSoundVolume <= 0) {
-            return;
-        }
-        currentSoundVolume = currentSoundVolume - 1;
     }
 
-
-
+    public void decreaseSoundVolume() {
+        if (currentSoundVolume > 0) {
+            currentSoundVolume = currentSoundVolume - 1;
+        }
+    }
 }
