@@ -2,8 +2,8 @@ package ru.netology.oopdesign;
 
 public class Radio {
 
-    public int currentRadioNumber;
-    public int currentSoundVolume;
+    private int currentRadioNumber;
+    private int currentSoundVolume;
 
     public int getCurrentSoundVolume() {
         return currentSoundVolume;
@@ -11,6 +11,16 @@ public class Radio {
 
     public int getCurrentRadioNumber() {
         return currentRadioNumber;
+    }
+
+    public void setCurrentSoundVolume(int newCurrentSoundVolume) {
+        if (newCurrentSoundVolume < 0) {
+            return;
+        }
+        if (newCurrentSoundVolume > 100) {
+            return;
+        }
+        currentSoundVolume = newCurrentSoundVolume;
     }
 
     public void setCurrentRadioNumber(int newCurrentRadioNumber) {

@@ -81,7 +81,7 @@ public class RadioTest {
     @CsvFileSource(files = "src/test/resources/IncreaseSoundVolumeLeftBorderAndInsideBorder.csv")
     public void increaseSoundVolumeLeftBorderAndInsideBorder(int currentSoundVolume) {
         Radio radio = new Radio();
-        radio.currentSoundVolume = currentSoundVolume;
+        radio.setCurrentSoundVolume(currentSoundVolume);
         int expected = currentSoundVolume + 1;
         radio.increaseSoundVolume();
         int actual = radio.getCurrentSoundVolume();
@@ -92,7 +92,7 @@ public class RadioTest {
     @Test
     public void increaseSoundVolumeRightBorder() {
         Radio radio = new Radio();
-        radio.currentSoundVolume = 100;
+        radio.setCurrentSoundVolume(100);
         int expected = 100;
         radio.increaseSoundVolume();
         int actual = radio.getCurrentSoundVolume();
@@ -104,8 +104,8 @@ public class RadioTest {
     @CsvFileSource(files = "src/test/resources/DecreaseSoundVolumeRightBorderAndInsideBorder.csv")
     public void decreaseSoundVolumeRightBorderAndInsideBorder(int currentSoundVolume) {
         Radio radio = new Radio();
-        radio.currentSoundVolume = currentSoundVolume;
-        int expected = currentSoundVolume - 1;
+        radio.setCurrentSoundVolume(currentSoundVolume);
+        int expected = radio.getCurrentSoundVolume() - 1;
         radio.decreaseSoundVolume();
         int actual = radio.getCurrentSoundVolume();
 
@@ -115,8 +115,8 @@ public class RadioTest {
     @Test
     public void decreaseSoundVolumeLeftBorder() {
         Radio radio = new Radio();
-        radio.currentSoundVolume = 0;
-        int expected = 0;
+        radio.setCurrentSoundVolume(0);
+        int expected = radio.getCurrentSoundVolume();
         radio.decreaseSoundVolume();
         int actual = radio.getCurrentSoundVolume();
 
