@@ -1,16 +1,24 @@
 package ru.netology.oopdesign;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
 
-    private int currentRadioNumber;
-    private int currentSoundVolume;
+    private int currentRadioNumber; // текущий номер радиостанции
+    private int currentSoundVolume; // текущая громкость радио
 
-    public int getCurrentSoundVolume() {
-        return currentSoundVolume;
-    }
+    private int numberOfRadioStations = 10;// количество радиостанций
 
-    public int getCurrentRadioNumber() {
-        return currentRadioNumber;
+    public Radio(int numberOfRadioStations) {
+        if (numberOfRadioStations <= 0) {
+            return;
+        }
+        this.numberOfRadioStations = numberOfRadioStations;
     }
 
     public void setCurrentSoundVolume(int newCurrentSoundVolume) {
@@ -27,14 +35,14 @@ public class Radio {
         if (newCurrentRadioNumber < 0) {
             return;
         }
-        if (newCurrentRadioNumber > 9) {
+        if (newCurrentRadioNumber > numberOfRadioStations - 1) {
             return;
         }
         currentRadioNumber = newCurrentRadioNumber;
     }
 
     public void nextRadioNumber() {
-        if (currentRadioNumber >= 9) {
+        if (currentRadioNumber >= numberOfRadioStations - 1) {
             setCurrentRadioNumber(0);
         } else {
             currentRadioNumber = currentRadioNumber + 1;
@@ -43,7 +51,7 @@ public class Radio {
 
     public void prevRadioNumber() {
         if (currentRadioNumber < 1) {
-            currentRadioNumber = 9;
+            currentRadioNumber = numberOfRadioStations - 1;
         } else {
             currentRadioNumber = currentRadioNumber - 1;
         }
