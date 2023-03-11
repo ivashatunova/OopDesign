@@ -18,6 +18,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/SoundVolumeBorderAndInsideBorder.csv")
     public void setSoundVolumeBorderAndInsideBorder(int expected) {
@@ -145,6 +146,28 @@ public class RadioTest {
         int actual = radio.getCurrentSoundVolume();
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void primaryNumberOfRadioStations() {
+        Radio radio = new Radio();
+        Assertions.assertEquals(10, radio.getNumberOfRadioStations());
+
+    }
+
+    @Test
+    public void establishedNumberOfRadioStations() {
+        Radio radio = new Radio(100);
+        Assertions.assertEquals(100, radio.getNumberOfRadioStations());
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/NegativeNumberOfRadioStations.csv")
+    public void negativeNumberOfRadioStations(int numberOfRadioStations) {
+        Radio radio = new Radio(numberOfRadioStations);
+        int actual = radio.getNumberOfRadioStations();
+
+        Assertions.assertEquals(10, actual);
     }
 
 
