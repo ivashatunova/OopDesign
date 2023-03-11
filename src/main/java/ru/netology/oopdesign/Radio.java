@@ -1,5 +1,12 @@
 package ru.netology.oopdesign;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
 
     private int currentRadioNumber; // текущий номер радиостанции
@@ -12,22 +19,6 @@ public class Radio {
             return;
         }
         this.numberOfRadioStations = numberOfRadioStations;
-    }
-
-    public Radio() {
-        this.numberOfRadioStations = numberOfRadioStations;
-    }
-
-    public int getNumberOfRadioStations() {
-        return numberOfRadioStations;
-    }
-
-    public int getCurrentSoundVolume() {
-        return currentSoundVolume;
-    }
-
-    public int getCurrentRadioNumber() {
-        return currentRadioNumber;
     }
 
     public void setCurrentSoundVolume(int newCurrentSoundVolume) {
